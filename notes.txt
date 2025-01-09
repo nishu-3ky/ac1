@@ -1,0 +1,56 @@
+Key Differences:
+Feature	                  Git	                               GitHub
+
+Type	           Version Control System (tool)	Hosting Platform (service for Git)
+Where it Runs	   Locally on your machine      	Cloud-based (accessible via browser)
+Purpose	           Tracks changes in code locally	Manages and shares Git repositories
+Usage	           Command-line or GUI tool     	Web interface or API
+Collaboration      Requires manual file sharing 	Enables seamless collaboration
+Internet           Works offline	                Requires internet access
+
+
+
+Clone-: Get a repo from github to our local machine
+    git clone <get https link from github->code dropdown>
+
+
+
+cd-: Change directory to go inside a directory(folder)
+    cd.. -: go back to one level folder
+    cd / -: go to root directory of the current path
+pwd -: Present working directory
+ls-: List folders/files
+ls -a -: list all files hidden also
+
+
+
+Status-: Displays the status of the code
+    git status
+
+    1)Untracked-:new files that git doesn't yet track
+    2)Modified-: changed
+    3)Staged-: file is ready to be committed
+    4)Unmodified-: unchanged
+
+Key Characteristics of Untracked Files:
+
+    Not Staged for Commit:
+        The file hasn't been added to Git's staging area (via git add).
+        Git doesn't include it in commits unless explicitly staged.
+    Newly Created:
+        Typically, these are new files that have been created in the working directory but not yet added to version control.
+    Ignored by Default:
+        If a file is explicitly listed in a .gitignore file, Git will also treat it as untracked.
+
+
+changed(modified)/newfile(untracked files)-->add(staged, any changes(modified or new) have to be staged first then it is ready to be committed)-->commit(unchanged, now git has taken the screenshot of the updated file)
+
+
+
+ADD and COMMIT
+
+add-:adds new or changed file in your working directory to the Git staging area
+    git add <file-name>  //adds a particular file
+    gitt add .  //adds all the files(changed or new file anything)
+commit-:it is the record of change
+    git commit -m "some message"
