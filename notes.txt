@@ -92,8 +92,7 @@ First create a normal folder in the local and then open git bash or terminal goi
   git remote -v (to verigy remote,optional, just to check if needed)
   git branch (to check branch, current branch,optional)
   git branch -M main (to renmame branch, as default name was master but now policy changed as master name is offensive so we change branch name manually to main, but now if main is by default then not required,optional)
-->git push -u origin main(u is upstream. means if we need to work in the same branch for a long time then by giving -u, from next time, git push
-                          only can push to the same branch of the repo)
+->git push -u origin main(u is upstream. means if we need to work in the same branch for a long time then by giving -u, from next time, git push only can push to the same branch of the repo)
 
 PRACTISE is to first make a repo in github only and then clone it if we want to work on any new repo on github 
 
@@ -129,6 +128,7 @@ MERGE A BRANCH TO ANOTHER BRANCH(for ex we created a feature branch from main br
 WAY 1-:
 git diff <branch-name> //to compare commits, branches, files and more
 git merge <branch-name> //to merge two branches
+git merge main //if we are checked in into feature branch then writing this command will merge code from main to the feature branch(if conflicts come , we check in vscode, fix it, then add ,commit and push), no changes will be mmade to main.
 
 WAY 2-:
 creata a PR
@@ -154,7 +154,8 @@ Case 1-: staged changes(we did git add but not yet commited)
 
 Case 2-: commited changes(single commit)
         ->git reset head~1 (O----O----O---O---O(latest commit is head, so we can move head to just previous commit by doing head~1))
-        Doing head~2 will move the commits to 2 commits before but the changes will be there in local repo as unstaged, which is ready to be added, we can remove it from our local by doing git reset
+        Doing head~2 will move the commits to 2 commits before
+        The changes will be there in local repo as unstaged, which is ready to be added, we can remove it from our local by doing git reset
 
 Case 3-: commited changes(many commits)
         ->git reset <commit-hash> (removes only from github. stays in local)(every commit has a unique commit hash which we can get from git log)
