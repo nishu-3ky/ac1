@@ -10,8 +10,10 @@ Internet           Works offline	                Requires internet access
 
 
 
+
 Clone-: Get a repo from github to our local machine
     git clone <get https link from github->code dropdown>
+
 
 
 
@@ -21,6 +23,7 @@ cd-: Change directory to go inside a directory(folder)
 pwd -: Present working directory
 ls-: List folders/files
 ls -a -: list all files hidden also
+
 
 
 
@@ -42,8 +45,8 @@ Key Characteristics of Untracked Files:
     Ignored by Default:
         If a file is explicitly listed in a .gitignore file, Git will also treat it as untracked.
 
-
 changed(modified)/newfile(untracked files)-->add(staged, any changes(modified or new) have to be staged first then it is ready to be committed)-->commit(unchanged, now git has taken the screenshot of the updated file)
+
 
 
 
@@ -52,5 +55,11 @@ ADD and COMMIT
 add-:adds new or changed file in your working directory to the Git staging area
     git add <file-name>  //adds a particular file
     gitt add .  //adds all the files(changed or new file anything)
+    (IN GITHUB DESKTOP SOFTWARE THIS STEP IS DONE AS WE CAN SELECT OR UNSELECT CHECKBOXES IN LEFT SIDE OF EACH FILES TO SELECT WHICH FILES NEEDS TO BE READY FOR COMMIT AND WHICH NOT, BY DEFAULT ALL ARE SELECTED)
+
 commit-:it is the record of change
     git commit -m "some message"
+
+EVEN AFTER COMMIT, THE CHANGES WILL NOT BE REFLECTED IN GITHUB, WE HAVE TO PUSH THE COMMIT FOR THAT
+push-: upload local repo content to remote repo 
+    git push 
