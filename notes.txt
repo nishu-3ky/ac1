@@ -1,3 +1,13 @@
+
+\  || / 
+ \ ||/
+  \||  /
+   || /
+\  ||/
+ \ ||
+  \||
+   || 
+
 Key Differences:
 Feature	                  Git	                               GitHub
 
@@ -22,7 +32,7 @@ cd-: Change directory to go inside a directory(folder)
     cd / -: go to root directory of the current path
 pwd -: Present working directory
 ls-: List folders/files
-ls -a -: list all files hidden also
+ls -a -: list all files hidden also(.git shows and this indicates whether the folder is a git repo or a normal folder)
 
 
 
@@ -60,6 +70,103 @@ add-:adds new or changed file in your working directory to the Git staging area
 commit-:it is the record of change
     git commit -m "some message"
 
+
+
+
+PUSH
+
 EVEN AFTER COMMIT, THE CHANGES WILL NOT BE REFLECTED IN GITHUB, WE HAVE TO PUSH THE COMMIT FOR THAT
 push-: upload local repo content to remote repo 
-    git push 
+    git push origin main
+    ->origin indicates a sample name of the repo which we have cloned from github, this name main can be changed to other name also for use but that is not needed
+    ->main is the branch in the repo(origin) 
+
+
+
+INIT
+
+INIT COMMAND-: To create a repo and branch from our local and then to GITHUB(Not cloning) 
+First create a normal folder in the local and then open git bash or terminal going to that path and use below commands
+->git init
+->git remote add origin <link> (create a repo with any name in GITHUB and copy the https link and paste it with this command in git bash)
+  git remote -v (to verigy remote,optional, just to check if needed)
+  git branch (to check branch, current branch,optional)
+  git branch -M main (to renmame branch, as default name was master but now policy changed as master name is offensive so we change branch name manually to main, but now if main is by default then not required,optional)
+->git push -u origin main(u is upstream. means if we need to work in the same branch for a long time then by giving -u, from next time, git push
+                          only can push to the same branch of the repo)
+
+PRACTISE is to first make a repo in github only and then clone it if we want to work on any new repo on github 
+
+WORKFLOW
+github repo--->clone--->changes--->add--->commit--->push
+
+
+
+
+
+BRANCHES
+               -------O----O----O(feature branch)\
+              /                                   \                  
+             /                                    /(merge featre and main branches)
+O---O---O---O----O---O---O------O(main branch)  /
+(O is commits)
+
+COMMANDS
+
+git branch-: to check branch
+git branch -M <new-branch-name> -: to rename branch
+git checkout <branch-name> -: to navigate to branch specified
+git checkout -b <new-branch-name> -: to create new branch 
+git branch -d <branch-name> -: to delete branch
+
+
+
+
+
+
+MERGE A BRANCH TO ANOTHER BRANCH(for ex we created a feature branch from main branch now we want to merge the feature code to main branch's code)
+
+WAY 1-:
+git diff <branch-name> //to compare commits, branches, files and more
+git merge <branch-name> //to merge two branches
+
+WAY 2-:
+creata a PR
+
+
+MERGE CONFLICTS
+An event that takes place while merging a branch to another(main to feature lets say) when git is unable to automatically resolve Differences b/w two commits because of change in same line or same file  .
+
+So when we do git merge main, vscode automatically shows us the Differences and there we can resolve conflicts and save file and again do add and commit
+
+//If you are in feature branch, then by doing git merge main, all the changes from main will come into feature and then after resolving the conficts we can do git add and git push in feature branch, after that to get the changes made in feature into main branch, checkout to main branch ->do git merge feature(no conflicts as resolved in feature)->git add and git push
+
+
+
+
+
+
+Undoing changes
+
+Case 1-: staged changes(we did git add but not yet commited)
+        ->git reset <file-name> (to remove a particular file from staging area)
+        ->git reset (to remove all files changed from staging area)
+
+Case 2-: commited changes(single commit)
+        ->git reset head~1 (O----O----O---O---O(latest commit is head, so we can move head to just previous commit by doing head~1))
+        Doing head~2 will move the commits to 2 commits before but the changes will be there in local repo as unstaged, which is ready to be added, we can remove it from our local by doing git reset
+
+Case 3-: commited changes(many commits)
+        ->git reset <commit-hash> (removes only from github. stays in local)(every commit has a unique commit hash which we can get from git log)
+        ->git reset --hard <commit-hash> (by doing this the changes or commit will be removed from github and also from our local repo)
+
+
+
+
+FORK
+A forked repository is a separate copy of the original repository that resides in your own account.
+You have full control over this fork, including the ability to make changes without impacting the original repository which is present in someone else's account
+
+Forking is widely used in open-source projects. Contributors fork the repository, make changes, and then propose those changes to the original repo via pull requests.
+
+SOME REPOS ARE RESTRICTED TO NOT CREATE BRANCHES OR MAKE CHANGES, SO IF WE WANT TO CONTRIBUTE TO THOSE REPOS, WE CAN FORK(GET) THE REPO IN OUR OWN ACCOUNT, CREATE BRANCH IN OUR ACCOUNT'S REPO, MAKE CHANGES THERE AND THEN CREATE A PR TO THE OORIGINAL ACCOUNT'S REPO
